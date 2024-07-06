@@ -3,43 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon | Próximamente</title>
+    <title>101 Lives Association</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
             text-align: center;
-            padding: 50px;
-            background-color: #f0f0f0;
+            padding: 1rem;
         }
-        h1 {
-            color: #333;
+        nav ul {
+            padding: 0;
+            list-style-type: none;
         }
-        .language {
-            margin-bottom: 30px;
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
         }
-        .social-links {
-            margin-top: 30px;
-        }
-        .social-links a {
-            margin: 0 10px;
-            color: #0066cc;
+        nav ul li a {
+            color: white;
             text-decoration: none;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <div class="language">
-        <h1>Coming Soon</h1>
-        <p>Our website is under construction. Until then, you can find us on our social media:</p>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#mission-vision">Mission and Vision</a></li>
+                <li><a href="#how-you-can-help">How You Can Help</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#local-contacts">Local Contacts</a></li>
+                <li><a href="#useful-apps">Useful Apps</a></li>
+                <li><a href="#contact-us">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section id="home">
+            <h1>Welcome to 101 Lives Association</h1>
+            <p>Transforming the lives of street cats across Spain through community collaboration, innovative solutions, and love.</p>
+            <a href="#" class="cta-button" id="ebook-button">Download Ebook</a>
+            <a href="#contact-us" class="cta-button">Get In Touch</a>
+        </section>
+
+        <section id="mission-vision">
+            <h2>Our Mission and Vision</h2>
+            <p>Our mission is to enable, support, and empower animal welfare across Spain through innovative digital solutions, collaboration, and community engagement. Our vision is to create harmonious coexistence between communities and animals throughout Spain, focusing on cat welfare, with education, technology, and scalable solutions bridging gaps in animal welfare needs and solutions.</p>
+        </section>
+
+        <section id="how-you-can-help">
+            <h2>How You Can Help</h2>
+            <p>Join us in our mission to improve the lives of street cats across Spain. Your support through volunteering, donations, or simply spreading the word can make a real difference, no matter where you are in the world.</p>
+            <a href="#contact-us" class="cta-button">Get In Touch</a>
+        </section>
+
+        <section id="resources">
+            <h2>Resources</h2>
+            <p>Available very soon</p>
+            <a href="#" class="cta-button">Access Resources</a>
+        </section>
+
+        <section id="local-contacts">
+            <h2>Local Contacts</h2>
+            <p>Available very soon</p>
+            <a href="#" class="cta-button">Find Local Contacts</a>
+        </section>
+
+        <section id="useful-apps">
+            <h2>Useful Apps and Services for Non-Profits</h2>
+            <p>Available very soon</p>
+        </section>
+
+        <section id="contact-us">
+            <h2>Contact Us</h2>
+            <p>Have questions or want to report a street cat colony in Spain? Get in touch!</p>
+            <a href="mailto:info@101lives.org" class="cta-button">Send Email</a>
+        </section>
     </div>
-    <div class="language">
-        <h1>Próximamente</h1>
-        <p>Nuestro sitio web está en construcción. Hasta entonces, puedes encontrarnos en nuestras redes sociales:</p>
+
+    <footer>
+        <p>&copy; 2024 101 Lives Association. All rights reserved.</p>
+        <nav>
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Use</a>
+        </nav>
+        <p>Contact: <a href="mailto:info@101lives.org">info@101lives.org</a></p>
+        <p>Ebooks: <a href="mailto:ebooks@101lives.org">ebooks@101lives.org</a></p>
+    </footer>
+
+    <!-- Modal for ebook download -->
+    <div id="ebook-modal" style="display:none; position:fixed; z-index:1; left:0; top:0; width:100%; height:100%; overflow:auto; background-color: rgb(0,0,0); background-color: rgba(0,0,0,0.4);">
+        <div style="background-color: #fefefe; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 600px;">
+            <span style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;" id="close-modal">&times;</span>
+            <h2>Download Our Ebook</h2>
+            <div id="brevo-form" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                <iframe 
+                    src="https://6ab9af95.sibforms.com/serve/MUIFAIlP1kvus7r1I8mjPo7YLOgYDVH-yRvcze8yGeiAwM27xWbIEP6teg0xwS9hqgFrepBLWamzZCw9jaJP9adx_G3IUmfi8OXIAI2IzYbXfMRFks6fqr3CuyN4NhgNZwRnfpx86AH0huA6N9MOIRjIK9tMFkS3TEUNkyHL3cU_X-Lrb9fS3brTioAkZRW3E5mvGHOmVMmubIGO"
+                    frameborder="0"
+                    scrolling="auto" 
+                    allowfullscreen 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                </iframe>
+            </div>
+        </div>
     </div>
-    <div class="social-links">
-        <a href="https://facebook.com/yourpage">Facebook</a>
-        <a href="https://instagram.com/yourpage">Instagram</a>
-        <a href="https://twitter.com/yourpage">Twitter</a>
-    </div>
+
+    <script>
+        document.getElementById('ebook-button').onclick = function() {
+            document.getElementById('ebook-modal').style.display = "block";
+        }
+
+        document.getElementById('close-modal').onclick = function() {
+            document.getElementById('ebook-modal').style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('ebook-modal')) {
+                document.getElementById('ebook-modal').style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
