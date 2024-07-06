@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>101 Lives Association</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#mission-vision">Mission and Vision</a></li>
+                <li><a href="#how-you-can-help">How You Can Help</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#local-contacts">Local Contacts</a></li>
+                <li><a href="#useful-apps">Useful Apps</a></li>
+                <li><a href="#contact-us">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <h1>Welcome to 101 Lives Association</h1>
+            <p>Transforming the lives of street cats across Spain through community collaboration, innovative solutions, and love.</p>
+            <a href="#resources" class="cta-button">Resources</a>
+            <a href="#how-you-can-help" class="cta-button">Get Involved</a>
+        </section>
+
+        <section id="mission-vision">
+            <h2>Our Mission and Vision</h2>
+            <p>Our mission is to enable, support, and empower animal welfare across Spain through innovative digital solutions, collaboration, and community engagement. Our vision is to create harmonious coexistence between communities and animals throughout Spain, focusing on cat welfare, with education, technology, and scalable solutions bridging gaps in animal welfare needs and solutions.</p>
+        </section>
+
+        <section id="how-you-can-help">
+            <h2>How You Can Help</h2>
+            <p>Join us in our mission to improve the lives of street cats across Spain. Your support through volunteering, donations, or simply spreading the word can make a real difference, no matter where you are in the world.</p>
+            <a href="#" class="cta-button">Get Involved</a>
+        </section>
+
+        <section id="resources">
+            <h2>Resources</h2>
+            <p>Access our curated collection of resources to support street cat associations across Spain.</p>
+            
+            <div class="featured-resources">
+                <div class="resource-item">
+                    <h4>Marketing Templates</h4>
+                    <p>Customizable designs for social media and print.</p>
+                    <button class="resource-button" data-resource="marketing">View</button>
+                </div>
+                <div class="resource-item">
+                    <h4>Project Planning Tools</h4>
+                    <p>Spreadsheets and guides for effective management.</p>
+                    <button class="resource-button" data-resource="planning">View</button>
+                </div>
+                <div class="resource-item">
+                    <h4>Educational Ebooks</h4>
+                    <p>In-depth guides on cat care and welfare.</p>
+                    <button class="resource-button" data-resource="ebooks">View</button>
+                </div>
+            </div>
+            
+            <a href="resources.html" class="cta-button">Explore Full Resource Library</a>
+            <button id="ebook-button" class="cta-button">Download the Ebook</button>
+        </section>
+
+        <section id="local-contacts">
+            <h2>Local Contacts</h2>
+            <p>Find and connect with street cat associations throughout Spain. Our local contacts feature acts as a yellow pages for street cat associations, providing social media links and contact information.</p>
+            <a href="#" class="cta-button">Find Local Contacts</a>
+        </section>
+
+        <section id="useful-apps">
+            <h2>Useful Apps and Services for Non-Profits</h2>
+            <p>Discover essential apps and services that can help non-profits in Spain streamline their operations and enhance their impact.</p>
+            <ul>
+                <li>Canva: Graphic design tool for creating marketing materials.</li>
+                <li>WhatsApp: Messaging app for communication.</li>
+                <li>Telegram: Secure messaging app for large group communications.</li>
+                <li>Google Workspaces: Suite of productivity tools including Gmail, Docs, Drive, and Calendar.</li>
+                <li>Slack: Team collaboration tool.</li>
+                <li>Trello: Project management and organization tool.</li>
+            </ul>
+            <a href="#" class="cta-button">Explore Apps and Services</a>
+        </section>
+
+        <section id="merchandise">
+            <h2>Support Our Cause</h2>
+            <p>Purchase our merchandise to support street cats across Spain. Every purchase helps fund our mission.</p>
+            <div class="product-grid">
+                <div class="product-item">
+                    <img src="path-to-image/calendar.jpg" alt="2025 Wall Calendar">
+                    <h3>2025 Wall Calendar</h3>
+                    <p>Featuring beautiful cats from our program.</p>
+                    <span class="price">€15.99</span>
+                    <button class="buy-button" data-product-id="calendar-2025">Buy Now</button>
+                </div>
+                <div class="product-item">
+                    <img src="path-to-image/book.jpg" alt="Street Cats of Spain">
+                    <h3>Street Cats of Spain</h3>
+                    <p>A heartwarming book about our feline friends.</p>
+                    <span class="price">€24.99</span>
+                    <button class="buy-button" data-product-id="book-street-cats">Buy Now</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-us">
+            <h2>Contact Us</h2>
+            <p>Have questions or want to report a street cat colony in Spain? Get in touch!</p>
+            <form>
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 101 Lives Association. All rights reserved.</p>
+        <nav>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+        </nav>
+        <p>Contact: <a href="mailto:info@101lives.org">info@101lives.org</a></p>
+        <p>Ebooks: <a href="mailto:ebooks@101lives.org">ebooks@101lives.org</a></p>
+    </footer>
+
+    <!-- Modal for ebook download -->
+    <div id="ebook-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Download Our Ebook</h3>
+            <div id="brevo-form">
+                <!-- Insert your Brevo form embed code here -->
+                <form id="sib-form" method="POST" action="https://your-form-endpoint.brevo.com">
+                    <input type="email" name="email" required placeholder="Your Email">
+                    <button type="submit">Download Ebook</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for resources -->
+    <div id="resource-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modal-title">Resource Title</h3>
+            <div id="modal-content">
+                <!-- Resource content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
