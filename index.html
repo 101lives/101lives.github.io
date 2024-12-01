@@ -133,41 +133,105 @@
         </div>
     </section>
 
-    <!-- Resource Modal -->
-    <div id="resource-modal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('resource-modal')">&times;</span>
-            <h3>Download Resource</h3>
-            <p>Enter your email to receive the download link:</p>
-            <form id="resource-form" onsubmit="handleResourceDownload(event)">
-                <div class="form-group">
-                    <input type="email" id="resource-email" placeholder="Your email" required>
-                </div>
-                <button type="submit" class="button button--primary">Send Download Link</button>
-            </form>
-        </div>
+<!-- Resource Modal Form -->
+<div id="resource-modal" class="modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('resource-modal')">&times;</span>
+        <h3>Download Resource</h3>
+        <p>Enter your email to receive the download link:</p>
+        <form id="resource-form" action="https://formspree.io/f/xrbgowjw" method="POST">
+            <!-- Hidden input for resource identification -->
+            <input type="hidden" id="resource-id" name="resource" value="">
+            <div class="form-group">
+                <input type="email" name="email" id="resource-email" placeholder="Your email" required>
+            </div>
+            <!-- Anti-spam honeypot field -->
+            <input type="text" name="_gotcha" style="display:none">
+            <!-- Success page redirect -->
+            <input type="hidden" name="_next" value="https://101lives.org/thank-you.html">
+            <button type="submit" class="button button--primary">Send Download Link</button>
+        </form>
     </div>
+</div>
 
-    <!-- Association Modal -->
-    <div id="association-modal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('association-modal')">&times;</span>
-            <h3>Request Association Resource</h3>
-            <p>This resource is available for registered Spanish animal welfare associations.</p>
-            <form id="association-form" onsubmit="handleAssociationRequest(event)">
-                <div class="form-group">
-                    <input type="text" id="org-name" placeholder="Association Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" id="org-email" placeholder="Association Email" required>
-                </div>
-                <div class="form-group">
-                    <textarea id="org-message" placeholder="Brief description of your association" required></textarea>
-                </div>
-                <button type="submit" class="button button--primary">Submit Request</button>
-            </form>
-        </div>
+<!-- Association Modal Form -->
+<div id="association-modal" class="modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('association-modal')">&times;</span>
+        <h3>Request Association Resource</h3>
+        <p>This resource is available for registered Spanish animal welfare associations.</p>
+        <form id="association-form" action="https://formspree.io/f/mbljpvwn" method="POST">
+            <!-- Hidden input for resource identification -->
+            <input type="hidden" id="association-resource-id" name="resource" value="">
+            <div class="form-group">
+                <input type="text" name="organization" id="org-name" placeholder="Association Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" id="org-email" placeholder="Association Email" required>
+            </div>
+            <div class="form-group">
+                <textarea name="message" id="org-message" placeholder="Brief description of your association" required></textarea>
+            </div>
+            <!-- Anti-spam honeypot field -->
+            <input type="text" name="_gotcha" style="display:none">
+            <!-- Success page redirect -->
+            <input type="hidden" name="_next" value="https://101lives.org/thank-you.html">
+            <button type="submit" class="button button--primary">Submit Request</button>
+        </form>
     </div>
+</div>
+
+<!-- Updated JavaScript for form handling -->
+<script>
+    // Modal handling with resource tracking
+    function openResourceModal(resourceId) {
+        const modal = document.getElementById('resource-modal');
+        document.getElementById('resource-id').value = resourceId;
+        modal.style.display = 'block';
+        
+        gtag('event', 'resource_access_attempt', {
+            'event_category': 'engagement',
+            'resource_id': resourceId
+        });
+    }
+
+    function openAssociationModal(resourceId) {
+        const modal = document.getElementById('association-modal');
+        document.getElementById('association-resource-id').value = resourceId;
+        modal.style.display = 'block';
+        
+        gtag('event', 'association_resource_attempt', {
+            'event_category': 'engagement',
+            'resource_id': resourceId
+        });
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
+        }
+    }
+
+    // Form submission tracking
+    document.getElementById('resource-form').addEventListener('submit', function(e) {
+        gtag('event', 'resource_download', {
+            'event_category': 'conversion',
+            'event_label': document.getElementById('resource-email').value
+        });
+    });
+
+    document.getElementById('association-form').addEventListener('submit', function(e) {
+        gtag('event', 'association_request', {
+            'event_category': 'conversion',
+            'event_label': document.getElementById('org-email').value
+        });
+    });
+</script>
 
     <footer>
         <div class="container">
