@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - 101 Lives Association</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <div class="container" style="text-align: center; padding: 4rem 1rem;">
+        <h1>Thank You!</h1>
+        <p>We've received your request.</p>
+        <div id="resource-message">
+            <p>Check your email shortly for the download link.</p>
+        </div>
+        <div id="association-message" style="display: none;">
+            <p>We'll review your request and get back to you soon.</p>
+        </div>
+        <a href="/" class="button button--primary">Return to Homepage</a>
+    </div>
+
+    <script>
+        // Show appropriate message based on form type
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const formType = params.get('form');
+            
+            if (formType === 'association') {
+                document.getElementById('resource-message').style.display = 'none';
+                document.getElementById('association-message').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
