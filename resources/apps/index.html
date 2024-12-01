@@ -7,28 +7,20 @@
     <meta name="description" content="Comprehensive list of digital tools and resources for animal welfare organizations in Spain">
     <link rel="stylesheet" href="../../assets/css/styles.css">
     
-    <!-- Same styles as before, plus: -->
     <style>
-        .tool-category {
-            margin-bottom: 4rem;
-        }
-
+        /* Same styles as before */
+        .tool-category { margin-bottom: 4rem; }
         .tool-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
             margin-top: 1.5rem;
         }
-
-        .tool-card {
-            height: 100%;
-        }
-
+        .tool-card { height: 100%; }
         .app-tag.nonprofit {
             background: #e6f3ff;
             color: #1a73e8;
         }
-
         .app-tag.free {
             background: #e6ffe6;
             color: #28a745;
@@ -56,298 +48,68 @@
             <h1>Digital Tools for Animal Welfare Organizations</h1>
             <p class="category-description">A comprehensive collection of digital tools and services to help animal welfare organizations enhance their operations. Many of these tools offer free or discounted plans for nonprofits.</p>
 
-            <!-- Website and Domain -->
-            <section class="tool-category">
-                <h2>Website & Domain Tools</h2>
-                <p class="category-description">Essential tools for creating and hosting your organization's website.</p>
+            <div id="tools-container">
+                <!-- Tools will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 101 Lives Association. All rights reserved.</p>
+            <nav>
+                <a href="#">Privacy Policy</a> | 
+                <a href="#">Terms of Use</a>
+            </nav>
+            <p>Contact: <a href="mailto:info@101lives.org">info@101lives.org</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Load and display tools
+        async function loadTools() {
+            try {
+                const response = await fetch('tools.json');
+                const data = await response.json();
+                const container = document.getElementById('tools-container');
                 
+                data.categories.forEach(category => {
+                    const section = createCategorySection(category);
+                    container.appendChild(section);
+                });
+            } catch (error) {
+                console.error('Error loading tools:', error);
+            }
+        }
+
+        function createCategorySection(category) {
+            const section = document.createElement('section');
+            section.className = 'tool-category';
+            
+            section.innerHTML = `
+                <h2>${category.name}</h2>
+                <p class="category-description">${category.description}</p>
                 <div class="tool-grid">
-                    <div class="card tool-card">
-                        <div class="app-card__content">
-                            <h3>GitHub Pages</h3>
-                            <p>Free website hosting platform perfect for creating and maintaining static websites.</p>
-                            <div class="app-tag free">Free</div>
-                            <div class="app-links">
-                                <a href="https://pages.github.com/" target="_blank" rel="noopener">Learn More</a>
+                    ${category.tools.map(tool => `
+                        <div class="card tool-card">
+                            <div class="app-card__content">
+                                <h3>${tool.name}</h3>
+                                <p>${tool.description}</p>
+                                <div class="app-tag ${tool.tagType || ''}">${tool.tag}</div>
+                                <div class="app-links">
+                                    <a href="${tool.url}" target="_blank" rel="noopener">Learn More</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="card tool-card">
-                        <div class="app-card__content">
-                            <h3>WordPress</h3>
-                            <p>Popular content management system for building dynamic websites.</p>
-                            <div class="app-tag">Website Platform</div>
-                            <div class="app-links">
-                                <a href="https://wordpress.org/" target="_blank" rel="noopener">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card tool-card">
-                        <div class="app-card__content">
-                            <h3>Arsys</h3>
-                            <p>Spanish web hosting and domain registration service.</p>
-                            <div class="app-tag">Spanish Provider</div>
-                            <div class="app-links">
-                                <a href="https://www.arsys.es/" target="_blank" rel="noopener">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
+                    `).join('')}
                 </div>
-            </section>
+            `;
+            
+            return section;
+        }
 
-            <!-- Productivity Suites -->
-            <section class="tool-category">
-                <h2>Productivity & Email</h2>
-                <p class="category-description">Complete solutions for email, document management, and collaboration.</p>
-                
-                <div class="tool-grid">
-                    <div class="card tool-card">
-                        <div class="app-card__content">
-                            <h3>Google for Nonprofits</h3>
-                            <p>Access to Google Workspace and other Google tools at no cost for eligible nonprofits.</p>
-                            <div class="app-tag nonprofit">Free for Nonprofits</div>
-                            <div class="app-links">
-                                <a href="https://www.google.com/nonprofits/" target="_blank" rel="noopener">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card tool-card">
-                        <div class="app-card__content">
-                            <h3>Microsoft 365 for Nonprofits</h3>
-                            <p>Microsoft's suite of productivity tools with special nonprofit pricing.</p>
-                            <div class="app-tag nonprofit">Nonprofit Program</div>
-                            <div class="app-links">
-                                <a href="https://www.microsoft.com/es-es/microsoft-365/nonprofit/office-365-nonprofit" target="_blank" rel="noopener">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Communication Tools -->
-            <section class="tool-category">
-                <h2>Communication Tools</h2>
-                <p class="category-description">Tools for team communication and collaboration.</p>
-                
-                <div class="tool-grid">
-                    <div class="card tool-card">
-                        <div class="app-card__content">
-                            <h3>WhatsApp Business</h3>
-                            <p>Free business account for communicating with volunteers and supporters.</p>
-                            <div class="app-tag free">Free</div>
-                            <div class="app-links">
-                                <a href="https://www.whatsapp.com/" target="_blank" rel="noopener">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card tool-card">
-                        <div class="app-card__content">
-                            <h3>Slack</h3>
-                            <p>Team communication platform with channels and direct messaging.</p>
-                            <div class="app-tag">Team Chat</div>
-                            <div class="app-links">
-                                <a href="https://slack.com/intl/es-es/" target="_blank" rel="noopener">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card tool-card">
-                        <div class="app-card__content">
-                            <h3>Microsoft Teams</h3>
-                            <p>Video conferencing and team collaboration platform.</p>
-                            <div class="app-tag">Communication</div>
-                            <div class="app-links">
-                                <a href="https://www.microsoft.com/es-es/microsoft-teams/group-chat-software" target="_blank" rel="noopener">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Data Management -->
-            <section class="tool-category">
-                <h2>Data Management & Reporting</h2>
-                <p class="category-description">Tools for organizing and visualizing your data.</p>
-                
-                <div class="tool-grid">
-                    <div class="card tool-card">
-                        <div class="app-card__content">
-                            <h3>Google Sheets</h3>
-                            <p>Spreadsheet tool for data management and basic analysis.</p>
-                            <div class="app-tag free">Free</div>
-                            <div class="app-links">
-                                <a href="https://www.google.com/sheets/about/" target="_blank" rel="noopener">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card tool-card">
-                        <div class="app-card__content">
-                            <h3>Looker Studio</h3>
-                            <p>Create custom dashboards and reports from your data.</p>
-                            <div class="app-tag free">Free</div>
-                            <div class="app-links">
-                                <a href="https://lookerstudio.google.com/" target="_blank" rel="noopener">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Project Management -->
-            <section class="tool-category">
-                <h2>Project Management</h2>
-                <p class="category-description">Tools for organizing tasks and projects.</p>
-                
-                <div class="tool-grid">
-                    <div class="card tool-card">
-                        <div class="app-card__content">
-                            <h3>Trello</h3>
-                            <p>Visual project management tool with cards and boards.</p>
-                            <div class="app-tag">Project Planning</div>
-                            <div class="app-links">
-                                <a href="https://trello.com/" target="_blank" rel="noopener">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card tool-card">
-                        <div class="app-card__content">
-                            <h3>Asana</h3>
-                            <p>Comprehensive project and task management platform.</p>
-                            <div class="app-tag">Project Management</div>
-                            <div class="app-links">
-                                <a href="https://asana.com/" target="_blank" rel="noopener">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Design Tools -->
-            <section class="tool-category">
-                <h2>Design Tools</h2>
-                <p class="category-description">Tools for creating visual content.</p>
-                
-                <div class="tool-grid">
-                    <div class="card tool-card">
-                        <div class="app-card__content">
-                            <h3>Canva for Nonprofits</h3>
-                            <p>Design platform with free premium features for nonprofits.</p>
-                            <div class="app-tag nonprofit">Free for Nonprofits</div>
-                            <div class="app-links">
-                                <a href="https://www.canva.com/canva-for-nonprofits/" target="_blank" rel="noopener">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Fundraising Tools -->
-            <section class="tool-category">
-                <h2>Fundraising & Donations</h2>
-                <p class="category-description">Platforms for accepting and managing donations.</p>
-                
-                <div class="tool-grid">
-                    <div class="card tool-card">
-                        <div class="app-card__content">
-                            <h3>PayPal for Nonprofits</h3>
-                            <p>Payment processing with reduced fees for nonprofits.</p>
-                            <div class="app-tag nonprofit">Nonprofit Rates</div>
-                            <div class="app-links">
-                                <a href="https://www.paypal.com/es/webapps/mpp/nfp" target="_blank" rel="noopener">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card tool-card">
-                        <div class="app-card__content">
-                            <h3>Bizum</h3>
-                            <p>Spanish mobile payment system for donations.</p>
-                            <div class="app-tag">Payment System</div>
-                            <div class="app-links">
-                                <a href="https://bizum.es/" target="_blank" rel="noopener">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card tool-card">
-                        <div class="app-card__content">
-                            <h3>Teaming</h3>
-                            <p>Micro-donation platform for recurring giving.</p>
-                            <div class="app-tag">Fundraising</div>
-                            <div class="app-links">
-                                <a href="https://www.teaming.net/" target="_blank" rel="noopener">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card tool-card">
-                        <div class="app-card__content">
-                            <h3>DonorBox</h3>
-                            <p>Donation forms and recurring giving platform.</p>
-                            <div class="app-tag">Fundraising</div>
-                            <div class="app-links">
-                                <a href="https://donorbox.org/" target="_blank" rel="noopener">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Email Marketing -->
-            <section class="tool-category">
-                <h2>Email Marketing</h2>
-                <p class="category-description">Tools for managing email communications.</p>
-                
-                <div class="tool-grid">
-                    <div class="card tool-card">
-                        <div class="app-card__content">
-                            <h3>Mailchimp</h3>
-                            <p>Email marketing platform with nonprofit discounts.</p>
-                            <div class="app-tag">Email Marketing</div>
-                            <div class="app-links">
-                                <a href="https://mailchimp.com/" target="_blank" rel="noopener">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card tool-card">
-                        <div class="app-card__content">
-                            <h3>Brevo</h3>
-                            <p>All-in-one platform for email marketing and automation.</p>
-                            <div class="app-tag">Email Marketing</div>
-                            <div class="app-links">
-                                <a href="https://www.brevo.com/" target="_blank" rel="noopener">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card tool-card">
-                        <div class="app-card__content">
-                            <h3>MailerLite</h3>
-                            <p>User-friendly email marketing platform.</p>
-                            <div class="app-tag">Email Marketing</div>
-                            <div class="app-links">
-                                <a href="https://www.mailerlite.com/" target="_blank" rel="noopener">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Social Media Management -->
-            <section class="tool-category">
-                <h2>Social Media Management</h2>
-                <p class="category-description">Tools for managing your social media presence.</p>
-                
-                <div class="tool-grid">
-                    <div class="card tool-card">
-                        <div class="app-card__content">
-                            <h3>Meta Business Suite</h3>
-                            <p>Manage Facebook and Instagram from one place.</p>
-                            <div class="app-tag free
+        // Load tools when page loads
+        document.addEventListener('DOMContentLoaded', loadTools);
+    </script>
+</body>
+</html>
