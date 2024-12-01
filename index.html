@@ -3,97 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>101 Lives Association</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>101 Lives Association - Animal Welfare Resources</title>
+    <meta name="description" content="Transforming animal welfare in Spain through technology, education, and community collaboration.">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
     <header>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#mission-vision">Mission and Vision</a></li>
-                <li><a href="#how-you-can-help">How You Can Help</a></li>
-                <li><a href="#contact-us">Contact Us</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#mission">Mission</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Welcome to 101 Lives Association</h1>
-            <p>Transforming the lives of street cats across Spain through community collaboration, innovative solutions, and love.</p>
-            <a href="#" class="cta-button" id="ebook-button">Download Ebook</a>
-            <a href="#contact-us" class="cta-button">Get In Touch</a>
+    <section class="hero">
+        <div class="hero__overlay"></div>
+        <div class="container">
+            <div class="hero__content">
+                <h1>Transforming Animal Welfare in Spain</h1>
+                <p class="hero__subtitle">Through technology, education, and community collaboration</p>
+                <div class="hero__buttons">
+                    <a href="#resources" class="button button--primary">Access Resources</a>
+                    <a href="#mission" class="button button--secondary">Learn More</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <div class="container">
-        <section id="mission-vision">
-            <h2>Our Mission and Vision</h2>
-            <p>Our mission is to enable, support, and empower animal welfare across Spain through innovative digital solutions, collaboration, and community engagement. Our vision is to create harmonious coexistence between communities and animals throughout Spain, focusing on cat welfare, with education, technology, and scalable solutions bridging gaps in animal welfare needs and solutions.</p>
-        </section>
-
-        <section id="how-you-can-help">
-            <h2>How You Can Help</h2>
-            <p>Join us in our mission to improve the lives of street cats across Spain. Your support through volunteering, donations, or simply spreading the word can make a real difference, no matter where you are in the world.</p>
-            <a href="#contact-us" class="cta-button">Get In Touch</a>
-        </section>
-
-        <section id="future-resources">
-            <h2>Coming Soon</h2>
-            <p>We're working on bringing you valuable resources, local contacts, and useful apps for non-profits. Stay tuned for updates!</p>
-        </section>
-
-        <section id="contact-us">
-            <h2>Contact Us</h2>
-            <p>Have questions or want to report a street cat colony in Spain? Get in touch!</p>
-            <a href="mailto:info@101lives.org" class="cta-button">Send Email</a>
-        </section>
-    </div>
-
-    <footer>
-        <p>&copy; 2024 101 Lives Association. All rights reserved.</p>
-        <nav>
-            <a href="#">Privacy Policy</a> | 
-            <a href="#">Terms of Use</a>
-        </nav>
-        <p>Contact: <a href="mailto:info@101lives.org">info@101lives.org</a></p>
-        <p>Ebooks: <a href="mailto:ebooks@101lives.org">ebooks@101lives.org</a></p>
-    </footer>
-
-    <!-- Modal for ebook download -->
-    <div id="ebook-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>Download Our Ebook</h3>
-            <div id="brevo-form" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                <iframe 
-                    width="540" 
-                    height="305" 
-                    src="https://6ab9af95.sibforms.com/serve/MUIFAIlP1kvus7r1I8mjPo7YLOgYDVH-yRvcze8yGeiAwM27xWbIEP6teg0xwS9hqgFrepBLWamzZCw9jaJP9adx_G3IUmfi8OXIAI2IzYbXfMRFks6fqr3CuyN4NhgNZwRnfpx86AH0huA6N9MOIRjIK9tMFkS3TEUNkyHL3cU_X-Lrb9fS3brTioAkZRW3E5mvGHOmVMmubIGO"                    
-                    frameborder="0"
-                    scrolling="auto" 
-                    allowfullscreen 
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-                </iframe>
+    <section id="mission" class="section">
+        <div class="container">
+            <div class="grid">
+                <div class="card">
+                    <h3>Technology</h3>
+                    <p>Empowering animal welfare organizations with digital tools and resources.</p>
+                </div>
+                <div class="card">
+                    <h3>Education</h3>
+                    <p>Sharing knowledge and best practices for animal care and management.</p>
+                </div>
+                <div class="card">
+                    <h3>Community</h3>
+                    <p>Building a network of support for animal welfare initiatives across Spain.</p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <script>
-        document.getElementById('ebook-button').onclick = function() {
-            document.getElementById('ebook-modal').style.display = "block";
+    <section id="resources" class="section section--alt">
+        <div class="container">
+            <h2>Latest Resources</h2>
+            <div class="grid">
+                <!-- Resource cards here - we'll add dynamic content later -->
+                <div class="card">
+                    <h3>Digital Transformation Guide</h3>
+                    <p>Basic guide for getting started with digital tools.</p>
+                    <a href="#" class="button button--secondary">Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>Social Media Templates</h3>
+                    <p>Ready-to-use templates for social media management.</p>
+                    <a href="#" class="button button--secondary">Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>Fundraising Toolkit</h3>
+                    <p>Complete guide for running successful fundraising campaigns.</p>
+                    <a href="#" class="button button--secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 101 Lives Association. All rights reserved.</p>
+            <nav>
+                <a href="#">Privacy Policy</a> | 
+                <a href="#">Terms of Use</a>
+            </nav>
+            <p>Contact: <a href="mailto:info@101lives.org">info@101lives.org</a></p>
+        </div>
+    </footer>
+
+    <style>
+    /* Add the CSS we created earlier here */
+    :root {
+        --color-primary: #1a73e8;
+        --color-secondary: #4285f4;
+        --color-text: #202124;
+        --color-text-light: #5f6368;
+        --color-background: #ffffff;
+        --color-surface: #f8f9fa;
+    }
+
+    /* Base styles */
+    body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+        line-height: 1.6;
+        color: var(--color-text);
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    /* Hero section */
+    .hero {
+        position: relative;
+        padding: 6rem 0;
+        background-color: var(--color-surface);
+        text-align: center;
+    }
+
+    .hero__content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+        line-height: 1.2;
+        margin: 0 0 1rem;
+    }
+
+    .hero__subtitle {
+        font-size: 1.5rem;
+        color: var(--color-text-light);
+        margin-bottom: 2rem;
+    }
+
+    /* Buttons */
+    .button {
+        display: inline-block;
+        padding: 0.8rem 1.5rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 500;
+        margin: 0.5rem;
+        transition: all 0.2s;
+    }
+
+    .button--primary {
+        background: var(--color-primary);
+        color: white;
+    }
+
+    .button--secondary {
+        background: transparent;
+        border: 2px solid var(--color-primary);
+        color: var(--color-primary);
+    }
+
+    /* Grid and Cards */
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 2.5rem;
         }
 
-        document.getElementById('close-modal').onclick = function() {
-            document.getElementById('ebook-modal').style.display = "none";
+        .hero__subtitle {
+            font-size: 1.25rem;
         }
 
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('ebook-modal')) {
-                document.getElementById('ebook-modal').style.display = "none";
-            }
+        .grid {
+            grid-template-columns: 1fr;
         }
-    </script>
+    }
+    </style>
 </body>
 </html>
