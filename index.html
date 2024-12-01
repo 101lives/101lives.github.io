@@ -5,21 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>101 Lives Association - Animal Welfare Resources</title>
     <meta name="description" content="Transforming animal welfare in Spain through technology, education, and community collaboration.">
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#resources">Resources</a></li>
-                <li><a href="#mission">Mission</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <div class="container">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#mission">Mission</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
-    <section class="hero">
+    <section id="home" class="hero">
         <div class="hero__overlay"></div>
         <div class="container">
             <div class="hero__content">
@@ -35,18 +47,19 @@
 
     <section id="mission" class="section">
         <div class="container">
+            <h2>Our Mission</h2>
             <div class="grid">
                 <div class="card">
                     <h3>Technology</h3>
-                    <p>Empowering animal welfare organizations with digital tools and resources.</p>
+                    <p>Empowering animal welfare organizations with digital tools and resources to streamline their operations and increase their impact.</p>
                 </div>
                 <div class="card">
                     <h3>Education</h3>
-                    <p>Sharing knowledge and best practices for animal care and management.</p>
+                    <p>Sharing knowledge and best practices to help organizations better manage and care for animals in their communities.</p>
                 </div>
                 <div class="card">
                     <h3>Community</h3>
-                    <p>Building a network of support for animal welfare initiatives across Spain.</p>
+                    <p>Building a supportive network of animal welfare organizations across Spain, fostering collaboration and shared success.</p>
                 </div>
             </div>
         </div>
@@ -54,27 +67,107 @@
 
     <section id="resources" class="section section--alt">
         <div class="container">
-            <h2>Latest Resources</h2>
+            <h2>Resources</h2>
+            <p class="section-intro">Access our collection of resources designed to support animal welfare initiatives.</p>
+            
+            <!-- Public Resources -->
+            <h3>Public Resources</h3>
             <div class="grid">
-                <!-- Resource cards here - we'll add dynamic content later -->
-                <div class="card">
-                    <h3>Digital Transformation Guide</h3>
-                    <p>Basic guide for getting started with digital tools.</p>
-                    <a href="#" class="button button--secondary">Learn More</a>
+                <div class="card resource-card">
+                    <div class="resource-card__content">
+                        <h4>Digital Transformation Guide</h4>
+                        <p>Basic guide for getting started with digital tools and platforms.</p>
+                        <span class="resource-tag">E-Book</span>
+                    </div>
+                    <div class="resource-card__action">
+                        <button onclick="openResourceModal('digital-guide')" class="button button--primary">Download Guide</button>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Social Media Templates</h3>
-                    <p>Ready-to-use templates for social media management.</p>
-                    <a href="#" class="button button--secondary">Learn More</a>
+                <div class="card resource-card">
+                    <div class="resource-card__content">
+                        <h4>Social Media Best Practices</h4>
+                        <p>Guidelines for effective social media management and engagement.</p>
+                        <span class="resource-tag">Guide</span>
+                    </div>
+                    <div class="resource-card__action">
+                        <button onclick="openResourceModal('social-media')" class="button button--primary">Access Guide</button>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Fundraising Toolkit</h3>
-                    <p>Complete guide for running successful fundraising campaigns.</p>
-                    <a href="#" class="button button--secondary">Learn More</a>
+            </div>
+
+            <!-- Association Resources -->
+            <h3>Association Resources</h3>
+            <p class="section-intro">Available exclusively for registered Spanish animal welfare associations.</p>
+            <div class="grid">
+                <div class="card resource-card">
+                    <div class="resource-card__content">
+                        <h4>Canva Template Collection</h4>
+                        <p>Professional templates for social media and marketing materials.</p>
+                        <span class="resource-tag">Templates</span>
+                    </div>
+                    <div class="resource-card__action">
+                        <button onclick="openAssociationModal('canva-templates')" class="button button--secondary">Request Access</button>
+                    </div>
+                </div>
+                <div class="card resource-card">
+                    <div class="resource-card__content">
+                        <h4>Website Templates</h4>
+                        <p>Ready-to-use GitHub Pages website templates for associations.</p>
+                        <span class="resource-tag">Templates</span>
+                    </div>
+                    <div class="resource-card__action">
+                        <button onclick="openAssociationModal('website-templates')" class="button button--secondary">Request Access</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Questions about our resources or want to learn more? Get in touch!</p>
+            <div class="text-center">
+                <a href="mailto:info@101lives.org" class="button button--primary">Send Email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resource Modal -->
+    <div id="resource-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('resource-modal')">&times;</span>
+            <h3>Download Resource</h3>
+            <p>Enter your email to receive the download link:</p>
+            <form id="resource-form" onsubmit="handleResourceDownload(event)">
+                <div class="form-group">
+                    <input type="email" id="resource-email" placeholder="Your email" required>
+                </div>
+                <button type="submit" class="button button--primary">Send Download Link</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Association Modal -->
+    <div id="association-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('association-modal')">&times;</span>
+            <h3>Request Association Resource</h3>
+            <p>This resource is available for registered Spanish animal welfare associations.</p>
+            <form id="association-form" onsubmit="handleAssociationRequest(event)">
+                <div class="form-group">
+                    <input type="text" id="org-name" placeholder="Association Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="org-email" placeholder="Association Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="org-message" placeholder="Brief description of your association" required></textarea>
+                </div>
+                <button type="submit" class="button button--primary">Submit Request</button>
+            </form>
+        </div>
+    </div>
 
     <footer>
         <div class="container">
@@ -87,107 +180,71 @@
         </div>
     </footer>
 
-    <style>
-    /* Add the CSS we created earlier here */
-    :root {
-        --color-primary: #1a73e8;
-        --color-secondary: #4285f4;
-        --color-text: #202124;
-        --color-text-light: #5f6368;
-        --color-background: #ffffff;
-        --color-surface: #f8f9fa;
-    }
-
-    /* Base styles */
-    body {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-        line-height: 1.6;
-        color: var(--color-text);
-    }
-
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1rem;
-    }
-
-    /* Hero section */
-    .hero {
-        position: relative;
-        padding: 6rem 0;
-        background-color: var(--color-surface);
-        text-align: center;
-    }
-
-    .hero__content {
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    .hero h1 {
-        font-size: 3.5rem;
-        line-height: 1.2;
-        margin: 0 0 1rem;
-    }
-
-    .hero__subtitle {
-        font-size: 1.5rem;
-        color: var(--color-text-light);
-        margin-bottom: 2rem;
-    }
-
-    /* Buttons */
-    .button {
-        display: inline-block;
-        padding: 0.8rem 1.5rem;
-        border-radius: 4px;
-        text-decoration: none;
-        font-weight: 500;
-        margin: 0.5rem;
-        transition: all 0.2s;
-    }
-
-    .button--primary {
-        background: var(--color-primary);
-        color: white;
-    }
-
-    .button--secondary {
-        background: transparent;
-        border: 2px solid var(--color-primary);
-        color: var(--color-primary);
-    }
-
-    /* Grid and Cards */
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
-    }
-
-    .card {
-        background: white;
-        padding: 1.5rem;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-        .hero h1 {
-            font-size: 2.5rem;
+    <script>
+        // Modal handling
+        function openResourceModal(resourceId) {
+            document.getElementById('resource-modal').style.display = 'block';
+            // Track event
+            gtag('event', 'resource_access_attempt', {
+                'event_category': 'engagement',
+                'resource_id': resourceId
+            });
         }
 
-        .hero__subtitle {
-            font-size: 1.25rem;
+        function openAssociationModal(resourceId) {
+            document.getElementById('association-modal').style.display = 'block';
+            // Track event
+            gtag('event', 'association_resource_attempt', {
+                'event_category': 'engagement',
+                'resource_id': resourceId
+            });
         }
 
-        .grid {
-            grid-template-columns: 1fr;
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
         }
-    }
-    </style>
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // Form handling
+        function handleResourceDownload(event) {
+            event.preventDefault();
+            const email = document.getElementById('resource-email').value;
+            
+            // Track event
+            gtag('event', 'resource_download', {
+                'event_category': 'conversion',
+                'event_label': email
+            });
+
+            // Here you would typically send this to your backend
+            alert('Thank you! Check your email for the download link.');
+            closeModal('resource-modal');
+        }
+
+        function handleAssociationRequest(event) {
+            event.preventDefault();
+            const formData = {
+                name: document.getElementById('org-name').value,
+                email: document.getElementById('org-email').value,
+                message: document.getElementById('org-message').value
+            };
+            
+            // Track event
+            gtag('event', 'association_request', {
+                'event_category': 'conversion',
+                'event_label': formData.email
+            });
+
+            // Here you would typically send this to your backend
+            alert('Thank you for your request! We will review it and get back to you soon.');
+            closeModal('association-modal');
+        }
+    </script>
 </body>
 </html>
