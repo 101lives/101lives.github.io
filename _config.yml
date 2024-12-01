@@ -1,0 +1,35 @@
+title: 101 Lives Association
+description: Transforming animal welfare in Spain through technology, education, and community collaboration.
+baseurl: "" # Leave empty if your site is at root level
+url: "https://101lives.org"
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Collections
+collections:
+  resources:
+    output: true
+    permalink: /resources/:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+  - scope:
+      path: "_resources"
+    values:
+      layout: "resource"
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor

@@ -1,0 +1,106 @@
+<header class="site-header">
+    <div class="container">
+        <nav class="main-nav">
+            <a href="{{ '/' | relative_url }}" class="logo">
+                101 Lives
+            </a>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links">
+                <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a></li>
+                <li><a href="{{ '/resources' | relative_url }}" {% if page.url contains 'resources' %}class="active"{% endif %}>Resources</a></li>
+                <li><a href="{{ '/about' | relative_url }}" {% if page.url contains 'about' %}class="active"{% endif %}>About</a></li>
+                <li><a href="{{ '/contact' | relative_url }}" {% if page.url contains 'contact' %}class="active"{% endif %}>Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<style>
+.site-header {
+    background: var(--color-background);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--color-primary);
+}
+
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-text);
+    margin: 4px 0;
+    transition: var(--transition);
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--color-background);
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+</style>
