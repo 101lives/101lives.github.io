@@ -1,0 +1,42 @@
+{
+  "categories": [
+    {
+      "name": "Website & Domain Tools",
+      "description": "Essential tools for creating and hosting your organization's website.",
+      "tools": [
+        {
+          "name": "GitHub Pages",
+          "description": "Free website hosting platform perfect for creating and maintaining static websites.",
+          "tag": "Free",
+          "tagType": "free",
+          "url": "https://pages.github.com/"
+        },
+        {
+          "name": "WordPress",
+          "description": "Popular content management system for building dynamic websites.",
+          "tag": "Website Platform",
+          "url": "https://wordpress.org/"
+        },
+        {
+          "name": "Arsys",
+          "description": "Spanish web hosting and domain registration service.",
+          "tag": "Spanish Provider",
+          "url": "https://www.arsys.es/"
+        }
+      ]
+    },
+    {
+      "name": "Productivity & Email",
+      "description": "Complete solutions for email, document management, and collaboration.",
+      "tools": [
+        {
+          "name": "Google for Nonprofits",
+          "description": "Access to Google Workspace and other Google tools at no cost for eligible nonprofits.",
+          "tag": "Free for Nonprofits",
+          "tagType": "nonprofit",
+          "url": "https://www.google.com/nonprofits/"
+        }
+      ]
+    }
+  ]
+}
