@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - 101 Lives Association</title>
+    <meta name="description" content="Resources for animal welfare organizations in Spain - tools, templates, and guides.">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <ul>
+                    <li><a href="../">Home</a></li>
+                    <li><a href="#" class="active">Resources</a></li>
+                    <li><a href="../directory">Directory</a></li>
+                    <li><a href="../#contact-us">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero__overlay"></div>
+        <div class="container">
+            <div class="hero__content">
+                <h1>Resources for Animal Welfare</h1>
+                <p class="hero__subtitle">Tools, templates, and guides to support animal welfare organizations in Spain</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="grid">
+                <!-- Public Resources -->
+                <div class="card resource-card">
+                    <div class="resource-card__content">
+                        <h3>Digital Transformation Guide</h3>
+                        <p>Get started with digital tools and learn how to enhance your organization's impact through technology.</p>
+                        <span class="resource-tag">Free E-book</span>
+                    </div>
+                    <div class="resource-card__action">
+                        <a href="#" onclick="openEbookModal(); return false;" class="button button--primary">Download Now</a>
+                    </div>
+                </div>
+
+                <div class="card resource-card">
+                    <div class="resource-card__content">
+                        <h3>Recommended Apps</h3>
+                        <p>Curated list of useful applications for non-profit animal welfare organizations.</p>
+                        <span class="resource-tag">Guide</span>
+                    </div>
+                    <div class="resource-card__action">
+                        <a href="apps/" class="button button--primary">View List</a>
+                    </div>
+                </div>
+
+                <!-- Association-Only Resources -->
+                <div class="card resource-card">
+                    <div class="resource-card__content">
+                        <h3>TNR Campaign Templates</h3>
+                        <p>Professional Canva templates for TNR program promotion and education.</p>
+                        <span class="resource-tag">Coming Soon</span>
+                    </div>
+                    <div class="resource-card__action">
+                        <button disabled class="button button--secondary">Coming Soon</button>
+                    </div>
+                </div>
+
+                <div class="card resource-card">
+                    <div class="resource-card__content">
+                        <h3>Website Templates</h3>
+                        <p>Ready-to-use GitHub Pages website templates for animal welfare organizations.</p>
+                        <span class="resource-tag">Coming Soon</span>
+                    </div>
+                    <div class="resource-card__action">
+                        <button disabled class="button button--secondary">Coming Soon</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- E-book Modal (same as home page) -->
+    <div id="ebook-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <h3>Download Our E-book</h3>
+            <div class="form-container">
+                <iframe 
+                    width="540" 
+                    height="305" 
+                    src="https://6ab9af95.sibforms.com/serve/MUIFAI7KHjHbU5bhtTXMMSp3rx6w7uaEaI_fAQtb8_6zFuKN9o36afpXpEBWZ5qfLg2Hp7lqZeHoBlwcsbc56oX9uQRplUHQ74GLHu9YVggx1deW7v1OMOK6yYLeygM8XqGwg54uHeW7WnL91-R2bsUEH0lNfRAPWjwZnnAY2E_2dt0eulN6_xBV5t373VfnP1yejH0f6ViadYMR" 
+                    frameborder="0" 
+                    scrolling="auto" 
+                    allowfullscreen 
+                    style="display: block; margin-left: auto; margin-right: auto; max-width: 100%;">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 101 Lives Association. All rights reserved.</p>
+            <nav>
+                <a href="#">Privacy Policy</a> | 
+                <a href="#">Terms of Use</a>
+            </nav>
+            <p>Contact: <a href="mailto:info@101lives.org">info@101lives.org</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function openEbookModal() {
+            document.getElementById('ebook-modal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('ebook-modal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
