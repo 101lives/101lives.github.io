@@ -1,3 +1,4 @@
+/* Variables */
 :root {
     --color-primary: #1a73e8;
     --color-secondary: #4285f4;
@@ -11,6 +12,7 @@
     --transition: all 0.2s ease;
 }
 
+/* Base styles */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -25,6 +27,7 @@ body {
     background: var(--color-background);
 }
 
+/* Typography */
 h1, h2, h3, h4, h5, h6 {
     margin-bottom: var(--spacing-unit);
     line-height: 1.2;
@@ -42,6 +45,7 @@ p {
     margin-bottom: var(--spacing-unit);
 }
 
+/* Layout */
 .container {
     width: 100%;
     max-width: 1200px;
@@ -49,6 +53,78 @@ p {
     padding: 0 var(--spacing-unit);
 }
 
+/* Navigation */
+nav {
+    background: var(--color-background);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+nav a:hover {
+    color: var(--color-primary);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    padding: 6rem 0;
+    background-color: var(--color-surface);
+    overflow: hidden;
+}
+
+.hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(26,115,232,0.1), rgba(66,133,244,0.05));
+}
+
+.hero__content {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 1;
+}
+
+.hero__subtitle {
+    font-size: 1.5rem;
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+}
+
+.hero__buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Sections */
+.section {
+    padding: 4rem 0;
+}
+
+.section--alt {
+    background: var(--color-surface);
+}
+
+/* Buttons */
 .button {
     display: inline-block;
     padding: 0.75rem 1.5rem;
@@ -57,6 +133,7 @@ p {
     text-decoration: none;
     cursor: pointer;
     transition: var(--transition);
+    margin: 0.5rem;
 }
 
 .button--primary {
@@ -79,25 +156,69 @@ p {
     color: white;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-unit);
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
 }
 
-.card {
-    background: var(--color-background);
-    border-radius: var(--border-radius);
-    padding: var(--spacing-unit);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.modal-close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.form-container {
+    margin-top: 20px;
+}
+
+/* Utilities */
+.text-center {
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background: var(--color-surface);
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+footer nav {
+    box-shadow: none;
+    margin: 1rem 0;
+}
+
+footer a {
+    color: var(--color-text-light);
+    text-decoration: none;
     transition: var(--transition);
 }
 
-.card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+footer a:hover {
+    color: var(--color-primary);
 }
 
+/* Responsive */
 @media (max-width: 768px) {
     h1 { font-size: 2rem; }
     h2 { font-size: 1.75rem; }
@@ -105,5 +226,24 @@ p {
     
     .container {
         padding: 0 calc(var(--spacing-unit) / 2);
+    }
+
+    .hero {
+        padding: 4rem 0;
+    }
+
+    .hero__subtitle {
+        font-size: 1.25rem;
+    }
+
+    .hero__buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
     }
 }
